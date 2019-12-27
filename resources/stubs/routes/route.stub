@@ -1,0 +1,1 @@
+AdvancedRoute::controller('DummyTable', 'DummyControllerClass');

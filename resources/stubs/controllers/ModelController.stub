@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\DummyModelClass;
+use Kdion4891\Valiant\Traits\Controllers\ValiantController;
+
+class DummyControllerClass extends Controller
+{
+    use ValiantController;
+
+    public function __construct()
+    {
+        $this->model = new DummyModelClass;
+        $this->middleware('auth');
+    }
+}

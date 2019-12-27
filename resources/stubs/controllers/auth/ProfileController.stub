@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Kdion4891\Valiant\Traits\Controllers\ValiantProfileController;
+
+class ProfileController extends Controller
+{
+    use ValiantProfileController;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->model = Auth::user();
+            return $next($request);
+        });
+        $this->middleware('auth');
+    }
+}

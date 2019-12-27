@@ -1,0 +1,16 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Kdion4891\Valiant\Traits\Models\ValiantLogModel;
+
+class Log extends Model
+{
+    use ValiantLogModel;
+
+    protected $log_actions = false;
+
+    protected $casts = ['data' => 'array'];
+    protected $with = ['user'];
+}

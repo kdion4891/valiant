@@ -1,0 +1,35 @@
+{
+    "name": "kdion4891/valiant",
+    "description": "A Laravel 6 admin panel package.",
+    "homepage": "https://github.com/kdion4891/valiant",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Dion",
+            "email": "kdion4891@icloud.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "laravel/framework": "6.*",
+        "lesichkovm/laravel-advanced-route": "^1.6",
+        "yajra/laravel-datatables-html": "^4.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kdion4891\\Valiant\\": "src"
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kdion4891\\Valiant\\Providers\\ValiantServiceProvider"
+            ]
+        }
+    }
+}

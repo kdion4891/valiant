@@ -1,0 +1,73 @@
+.dataTables_wrapper .row:nth-child(2) {
+    overflow-x: auto;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+}
+.dataTables_wrapper .row:nth-child(2) .col-sm-12 {
+    padding: 0;
+}
+.dataTable th {
+    white-space: nowrap;
+}
+.dataTable th:first-child, .dataTable td:first-child {
+    padding-left: 1.25rem;
+}
+.dataTable th:last-child, .dataTable td:last-child {
+    padding-right: 1.25rem;
+}
+.dataTable th, .dataTable td {
+    vertical-align: middle;
+}
+.dataTable tr.checked td {
+    background-color: #f8f9fa;
+}
+.dataTable tr:hover td, .table-hover tbody tr:hover {
+    background-color: #f4f6f9;
+}
+.dataTables_paginate {
+    overflow-x: auto;
+}
+.dataTables_paginate .pagination {
+    display: inline-table;
+}
+.dataTables_paginate .pagination > li {
+    display: table-cell;
+}
+
+.card.card-outline-tabs {
+    border-top: 0;
+}
+.card > .list-group:first-child .list-group-item:last-child {
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.list-group-hover .list-group-item:hover {
+    background-color: #F4F6F9;
+}
+.list-group [data-field]:last-child {
+    margin-bottom: .75rem;
+}
+.list-group [data-file]:first-child {
+    margin-top: .75rem;
+}
+
+.btn.px-btn {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+.btn-sm.px-btn {
+    padding-left: .36rem;
+    padding-right: .36rem;
+}
+
+.toasts-top-right {
+    z-index: 1060;
+}
+
+@media (min-width: 576px) {
+    .p-label {
+        padding-top: calc(.375rem + 1px);
+        padding-bottom: calc(.375rem + 1px);
+    }
+}

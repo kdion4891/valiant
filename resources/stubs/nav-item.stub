@@ -1,0 +1,5 @@
+<li class="nav-item">
+    <a href="{{ url('DummyTable') }}" class="nav-link {{ Request::is('DummyTable') ? 'active' : '' }}">
+        <i class="nav-icon fa fa-file"></i> <p>DummyModelTitles</p>
+    </a>
+</li>

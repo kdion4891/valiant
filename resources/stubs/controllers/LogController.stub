@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Log;
+use Kdion4891\Valiant\Traits\Controllers\ValiantController;
+
+class LogController extends Controller
+{
+    use ValiantController;
+
+    public function __construct()
+    {
+        $this->model = new Log;
+        $this->middleware(['auth', 'can:Admin']);
+    }
+}

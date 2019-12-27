@@ -1,0 +1,30 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Kdion4891\Valiant\Field;
+use Kdion4891\Valiant\Traits\Models\ValiantModel;
+
+class DummyModelClass extends Model
+{
+    use ValiantModel;
+
+    public function fields()
+    {
+        return [
+            Field::make('ID')
+                ->table()->tableSearchSort()->tableDefaultOrder('desc')
+                ->detail(),
+
+            Field::make('Name')
+                ->table()->tableSearchSort()
+                ->detail()
+                ->input()->inputCreateEdit()
+                ->rulesCreateEdit(['name' => 'required']),
+
+            Field::make('Created At')->detail(),
+            Field::make('Updated At')->detail(),
+        ];
+    }
+}

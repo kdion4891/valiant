@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use Kdion4891\Valiant\Traits\Controllers\ValiantUserController;
+
+class UserController extends Controller
+{
+    use ValiantUserController;
+
+    public function __construct()
+    {
+        $this->model = new User;
+        $this->middleware(['auth', 'can:Admin']);
+    }
+}

@@ -1,0 +1,14 @@
+<?php
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('home', 'HomeController@index')->name('home');
+
+AdvancedRoute::controller('profile', 'Auth\ProfileController');
+AdvancedRoute::controller('users', 'UserController');
+AdvancedRoute::controller('logs', 'LogController');
+
