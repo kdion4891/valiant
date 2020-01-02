@@ -98,7 +98,7 @@ trait ValiantModel
             }
         }
         $html = app('datatables.html')->columns($columns);
-        $html->setTableId('table' . preg_replace('/^[^a-z]+|[^\w:.-]+/i', '_', str_replace(config('app.url'), '', request()->url())));
+        $html->setTableId('table' . preg_replace('/^[^a-z]+|[^\w:.-]+/i', '_', parse_url(request()->url())['path']));
         if ($default_order) $html->orderBy($default_order);
         if ($show_actions && $single_actions) $html->addAction(['title' => '', 'data' => 'table_actions']);
         if ($show_checkbox && $bulk_actions) $html->addCheckbox(['title' => view('valiant::models.actions.checkbox-all')->render(), 'data' => 'table_checkbox']);

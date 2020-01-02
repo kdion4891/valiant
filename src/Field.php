@@ -151,6 +151,14 @@ class Field
         return $this;
     }
 
+    public function inputSwitch()
+    {
+        $this->table_view = 'valiant::details.checkbox';
+        $this->detail_view = 'valiant::details.checkbox';
+        $this->input_view = 'valiant::inputs.switch';
+        return $this;
+    }
+
     public function inputCheckboxes($options = [])
     {
         $this->table_view = 'valiant::details.checkboxes';

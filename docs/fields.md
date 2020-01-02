@@ -168,6 +168,14 @@ The migration column for a checkbox should be `boolean`.
 
 ---
 
+### `inputSwitch()`
+
+Sets the field to be a form switch input.
+
+The migration column for a switch should be `boolean`.
+
+---
+
 ### `inputCheckboxes($options = [])`
 
 Sets the field to be multiple form checkbox inputs.
