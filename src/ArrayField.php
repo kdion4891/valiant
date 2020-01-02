@@ -60,6 +60,12 @@ class ArrayField
         return $this;
     }
 
+    public function inputSwitch()
+    {
+        $this->input_view = 'valiant::inputs.arrays.switch';
+        return $this;
+    }
+
     public function inputSelect($options = [])
     {
         $this->input_view = 'valiant::inputs.arrays.select';
