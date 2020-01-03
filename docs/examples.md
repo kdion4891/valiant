@@ -103,13 +103,13 @@ Note the use of `inputActions()` and `rulesActions()`.
 
 Action declaration:
 
-    Action::make('users.actions.password'),
+    Action::make('users.actions.password-button'),
 
-Action button view file `resources/views/users/actions/password.blade.php`:
+Action button view file `resources/views/users/actions/password-button.blade.php`:
 
     <a
         href="{{ url($model->getTable() . '/password/' . $model->id) }}"
-        class="btn btn{{ !Request::is($model->getTable() . '/password/' . $model->id) ? '-outline' : '' }}-primary px-btn"
+        class="btn {{ Request::ajax() ? 'btn-sm' : '' }} btn{{ !Request::is($model->getTable() . '/password/' . $model->id) ? '-outline' : '' }}-primary px-btn"
         title="Password"
     >
         <i class="fa fa-fw fa-lock"></i>
@@ -181,7 +181,7 @@ Action button view file `resources/views/vehicles/actions/report-accident-button
 
     <button
         type="button"
-        class="btn btn-outline-primary px-btn"
+        class="btn {{ Request::ajax() ? 'btn-sm' : '' }} btn-outline-primary px-btn"
         title="Report Accident"
         data-show-modal="{{ url('vehicles/report-accident/' . $model->id) }}"
     >

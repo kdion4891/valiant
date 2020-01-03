@@ -81,7 +81,7 @@ trait ValiantUserModel
         return [
             Action::detailsButton(),
             Action::editButton(),
-            Action::make('valiant::users.actions.password'),
+            Action::make('valiant::users.actions.password-button'),
             Action::deleteButton(),
         ];
     }

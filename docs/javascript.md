@@ -37,7 +37,7 @@ Opens an AJAX modal using the specified URL:
 
     <button
         type="button"
-        class="btn btn-outline-primary px-btn"
+        class="btn {{ Request::ajax() ? 'btn-sm' : '' }} btn-outline-primary px-btn"
         title="Report Accident"
         data-show-modal="{{ url('vehicles/report-accident/' . $model->id) }}"
     >
