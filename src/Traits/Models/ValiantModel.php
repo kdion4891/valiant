@@ -3,6 +3,7 @@
 namespace Kdion4891\Valiant\Traits\Models;
 
 use Kdion4891\Valiant\Action;
+use Illuminate\Support\Facades\Log;
 
 trait ValiantModel
 {
@@ -53,13 +54,13 @@ trait ValiantModel
         ];
     }
 
-    public function table($query = null, $show_actions = true, $show_checkbox = true)
+    public function table($query = null, $show_actions = true, $show_checkbox = true, $filter=null)
     {
         $fields = $this->fields();
         $single_actions = $this->singleActions();
         $bulk_actions = $this->bulkActions();
 
-        $table = datatables($query ? $query : $this->tableQuery());
+        $table = datatables($query ? $query : $this->tableQuery($filter));
         foreach ($fields as $field) {
             if ($field->table) {
                 if ($field->table_view_custom || $field->table_view) {
@@ -98,7 +99,7 @@ trait ValiantModel
             }
         }
         $html = app('datatables.html')->columns($columns);
-        $html->setTableId('table' . preg_replace('/^[^a-z]+|[^\w:.-]+/i', '_', str_replace(config('app.url'), '', request()->url())));
+        $html->setTableId('table' . preg_replace('/^[^a-z]+|[^\w:.-]+/i', '_', parse_url(request()->url())['path']));
         if ($default_order) $html->orderBy($default_order);
         if ($show_actions && $single_actions) $html->addAction(['title' => '', 'data' => 'table_actions']);
         if ($show_checkbox && $bulk_actions) $html->addCheckbox(['title' => view('valiant::models.actions.checkbox-all')->render(), 'data' => 'table_checkbox']);
@@ -109,9 +110,16 @@ trait ValiantModel
         ];
     }
 
-    public function tableQuery()
+    public function tableQuery($filter=null)
     {
-        return $this->select($this->getTable() . '.*')->with($this->with)->withCount($this->withCount);
+        $result = $this->select($this->getTable() . '.*')->with($this->with)->withCount($this->withCount);
+        
+        if ($filter)
+            foreach($filter as $column => $value)
+                $result = $result->where($column, $value);
+        
+        return $result;
+
     }
 
     public function fieldInputs($action)

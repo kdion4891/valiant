@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use Auth;
 
 trait ValiantController
 {
     protected $model;
+    protected $byUser;
     protected $upload_path;
 
     public function getIndex(Request $request)
     {
-        $table = $this->model->table();
+        $table = $this->model->table(null, true, true, $this->byUser ? array('user_id'=>Auth::id()) : null);
+
         $this->setGoBackUrl();
 
         return $request->ajax()
