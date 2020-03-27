@@ -79,7 +79,8 @@ trait ValiantUserModel
     public function singleActions()
     {
         return [
-            Action::detailsButton(),
+            //Action::detailsButton(),
+            Action::backButton(),
             Action::editButton(),
             Action::make('valiant::users.actions.password-button'),
             Action::deleteButton(),

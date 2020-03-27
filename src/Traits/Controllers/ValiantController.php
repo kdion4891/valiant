@@ -32,6 +32,10 @@ trait ValiantController
 
     public function postCreate(Request $request)
     {
+        if($request->input('_submit') == 'cancel') {
+            return $this->goBack();
+        }
+
         $this->validate($request, $this->model->fieldRules('create'));
         $this->model = $this->model->create($this->requestData('create'));
 
@@ -60,6 +64,10 @@ trait ValiantController
 
     public function postEdit(Request $request, $id)
     {
+        if($request->input('_submit') == 'cancel') {
+            return $this->goBack();
+        }
+
         $this->model = $this->model->findOrFail($id);
         $this->validate($request, $this->model->fieldRules('edit'));
         $this->model->update($this->requestData('edit'));
