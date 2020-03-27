@@ -44,7 +44,8 @@ trait ValiantLogModel
     public function singleActions()
     {
         return [
-            Action::detailsButton(),
+            //Action::detailsButton(),
+            Action::backButton(),
             Action::deleteButton(),
         ];
     }

@@ -14,6 +14,7 @@
                 @include('valiant::inputs.list', ['action' => 'create'])
             </div>
             <div class="card-footer text-center bg-light rounded-bottom">
+                <button type="submit" name="_submit" value="cancel" class="btn btn-danger">Cancel</button>
                 <button type="submit" name="_submit" value="save" class="btn btn-primary">Save</button>
                 <button type="submit" name="_submit" value="back" class="btn btn-primary">Save &amp; Go Back</button>
             </div>

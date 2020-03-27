@@ -37,10 +37,20 @@ trait ValiantModel
         return [];
     }
 
-    public function singleActions()
+    public function rowActions()
     {
         return [
             Action::detailsButton(),
+            Action::editButton(),
+            Action::deleteButton(),
+        ];
+    }
+
+    public function singleActions()
+    {
+        return [
+            //Action::detailsButton(),
+            Action::backButton(),
             Action::editButton(),
             Action::deleteButton(),
         ];
@@ -56,6 +66,7 @@ trait ValiantModel
     public function table($query = null, $show_actions = true, $show_checkbox = true)
     {
         $fields = $this->fields();
+        $row_actions = $this->rowActions();
         $single_actions = $this->singleActions();
         $bulk_actions = $this->bulkActions();
 
@@ -70,11 +81,18 @@ trait ValiantModel
                 }
             }
         }
-        if ($show_actions && $single_actions) {
-            $table->editColumn('table_actions', function ($model) {
-                return view('valiant::models.actions.single', ['model' => $model]);
+        if($show_actions && $row_actions) {
+            $table->editColumn('table_actions', function($model) {
+                return view('valiant::models.actions.row', ['model' => $model]);
             });
         }
+
+//        if ($show_actions && $single_actions) {
+//            $table->editColumn('table_actions', function ($model) {
+//                return view('valiant::models.actions.single', ['model' => $model]);
+//            });
+//        }
+//
         if ($show_checkbox && $bulk_actions) {
             $table->editColumn('table_checkbox', function ($model) {
                 return view('valiant::models.actions.checkbox', ['model' => $model]);

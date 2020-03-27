@@ -46,6 +46,11 @@ class Action
         return self::make('valiant::models.actions.delete-button');
     }
 
+    public static function backButton()
+    {
+        return self::make('valiant::models.actions.back-button');
+    }
+
     public static function deleteBulk()
     {
         return self::make('valiant::models.actions.delete-bulk');
